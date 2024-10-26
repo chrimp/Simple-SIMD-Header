@@ -120,7 +120,7 @@ Using original code (scalar) takes 15.284 seconds in average, while SSE version 
 Benchmark was done by measuring LUFS of 504 audio files which includes above functions' processing on each file. Iterated three times, averaged.
 
 ## Requirements
-Target platform should support according instruction set (SSE/AVX2/AVX512), these header files **do not** include runtime feature check.
+Target platform should support according instruction set (SSE/AVX/AVX512), these header files **do not** include runtime feature check.
 
 ## Compile Options
 **!!Use this with optimization enabled!!** Instance creation is expensive--especially over a large iteration.  
