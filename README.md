@@ -45,7 +45,7 @@ const float& constRef = vec[0]; // constRef is const, read-only
 
 ## Use cases
 Generally you don't need these, compilers with optimization enabled will automatically vectorize/unroll loops for you.  
-However in some cases compiler misses possible vectorization points:
+However in some cases compiler misses possible vectorization points due to runtime-determined variables:
 ```C++
 (Original Code)
 void SecondOrderIIRFilter::ProcessBuffer(vector<vector<float>>& buffer) {
@@ -117,7 +117,9 @@ void AVX_Filter::processVector(vector<vector<float>>& samples) {
 (Above is my original work, under MIT License)
 
 Using original code (scalar) takes 15.284 seconds in average, while SSE version took 12.032 seconds in average.  
-Benchmark was done by measuring LUFS of 504 audio files which includes above functions' processing on each file. Iterated three times, averaged.
+Benchmark was done by measuring LUFS of 504 audio files which includes above functions' processing on each file. Iterated three times, averaged.  
+
+Should mention that the original code is cannot manually nor automatically vectorized since the number of channels is unknown at the compile time anyway.
 
 ## Requirements
 Target platform should support according instruction set (SSE/AVX/AVX512), these header files **do not** include runtime feature check.
