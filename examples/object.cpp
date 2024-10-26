@@ -7,9 +7,9 @@
 #include <vector>
 #include <iostream>
 #include <thread>
-#include "headers/Vector4.hpp"
-#include "headers/Vector8.hpp"
-#include "headers/Vector16.hpp"
+#include "../headers/Vector4.hpp"
+#include "../headers/Vector8.hpp"
+#include "../headers/Vector16.hpp"
 
 
 using namespace std;
